@@ -7,14 +7,14 @@
         let clicks = 0;
         let x = 0;
         let alp=0.0;
-        let xp=[];
-        let yp=[];
+        let xp=[]//[0,0,0,0,0,0,0,0,0,0,0,0,0];
+        let yp=[]//[0,0,0,0,0,0,0,0,0,0,0,0,0];
         let img;
+        let drawLines=true;
 
         function setup(){
-            createCanvas(  567, 798);
-            //img by http://www.lenawikmandesign.se/sv/prints/a4-prints/a4-print-kungsangslilja.html
-            img=loadImage("https://shopcdn2.textalk.se/shop/ws52/62852/art52/h7287/165677287-origpic-34f3e8.jpg");
+            createCanvas(  567, 798);            
+            img=loadImage(eximg);
             colorMode(RGB, 1);
         }
 
@@ -26,8 +26,15 @@
 
             drawExercise();
             
+            if(drawLines){
+                if(xp.length>1 ){
+                    for(var i=0;i<xp.length-1;i++){
+                        line(xp[i], yp[i], xp[i+1], yp[i+1]);
+                    }
+                }
+            }
             
-            if (clicks > 5) {
+            if (distancePoints()) {
                 loop();
                 
                 image(img, 0, 0);
@@ -37,32 +44,20 @@
                     rect(0,0 ,567, 798);
                 }
 
-                if(xp.length>1){
-                    for(var i=0;i<xp.length-1;i++){
-                        line(xp[i], yp[i], xp[i+1], yp[i+1]);
-                    }
-                }
-
-                drawExercise();
-
-                //x = x + 0.1;
-                //if (x > width) {
-                //    x = 0;
-                //}
-                //line(x, 0, x, height);
+                drawLines=false;
             }
         }
 
         function mousePressed() {
             clicks++;
-            if (clicks > 6) {
+            
                 if(mouseButton === LEFT){
                     xp.push(mouseX); yp.push(mouseY)
                 }
                 if(mouseButton === RIGHT){
                     xp.pop(); yp.pop();
                 }
-            }
+            
         }
 
         function drawExercise(){
@@ -85,6 +80,25 @@
             }
             strokeWeight(1)
         }
+
+        function distancePoints(){
+            if(xp.length != figurex.length)
+                return false;
+
+            var sum=0;
+            for(var i=0;i<figurex.length;i++){
+                x=figurex[i]-xp[i];
+                y=figurey[i]-yp[i];
+                sum+=sqrt(x*x+y*y);
+            }
+            sum/=figurex.length;
+            if(sum>10){
+                return false;
+            }else{
+                return true;
+            }
+        }
+       
        
        </script>
     </head>

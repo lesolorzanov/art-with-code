@@ -4,3 +4,5 @@ let petalx=[[217, 204, 186, 173, 164, 153, 143, 128, 115],[177, 191, 198, 204, 2
 let petaly=[[223, 223, 226, 231, 239, 249, 260, 279, 293],[329, 315, 304, 291, 276, 261, 247, 231, 223],[ 359, 355, 348, 338, 323, 313, 299, 284, 269, 251]];
 let figurex=[217, 186, 147, 81, 116, 112, 177, 164, 202, 204, 252, 244, 228];
 let figurey=[222, 212, 222, 316, 294, 356, 330, 388, 360, 386, 304, 252, 226];
+//img by http://www.lenawikmandesign.se/sv/prints/a4-prints/a4-print-kungsangslilja.html
+let eximg="https://shopcdn2.textalk.se/shop/ws52/62852/art52/h7287/165677287-origpic-34f3e8.jpg"
