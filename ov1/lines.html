@@ -1,0 +1,93 @@
+<html>
+    <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+    <script src="ov1.js"></script>
+    <script>
+        
+        let clicks = 0;
+        let x = 0;
+        let alp=0.0;
+        let xp=[];
+        let yp=[];
+        let img;
+
+        function setup(){
+            createCanvas(  567, 798);
+            //img by http://www.lenawikmandesign.se/sv/prints/a4-prints/a4-print-kungsangslilja.html
+            img=loadImage("https://shopcdn2.textalk.se/shop/ws52/62852/art52/h7287/165677287-origpic-34f3e8.jpg");
+            colorMode(RGB, 1);
+        }
+
+        function draw(){
+
+            background(255);
+            fill(0)
+            text(clicks, 40, 40)
+
+            drawExercise();
+            
+            
+            if (clicks > 5) {
+                loop();
+                
+                image(img, 0, 0);
+                if(alp<1.0){
+                    fill(255,255,255,1.0-alp);
+                    alp+=0.005;
+                    rect(0,0 ,567, 798);
+                }
+
+                if(xp.length>1){
+                    for(var i=0;i<xp.length-1;i++){
+                        line(xp[i], yp[i], xp[i+1], yp[i+1]);
+                    }
+                }
+
+                drawExercise();
+
+                //x = x + 0.1;
+                //if (x > width) {
+                //    x = 0;
+                //}
+                //line(x, 0, x, height);
+            }
+        }
+
+        function mousePressed() {
+            clicks++;
+            if (clicks > 6) {
+                if(mouseButton === LEFT){
+                    xp.push(mouseX); yp.push(mouseY)
+                }
+                if(mouseButton === RIGHT){
+                    xp.pop(); yp.pop();
+                }
+            }
+        }
+
+        function drawExercise(){
+            for(var i=0;i<stemx.length-1;i++){
+                line(stemx[i], stemy[i], stemx[i+1], stemy[i+1]);
+            }
+
+            for(var i=0;i<petalx.length;i++){
+                px=petalx[i];
+                py=petaly[i];
+                for(var j=0;j<px.length-1;j++){
+                    line(px[j], py[j], px[j+1], py[j+1]);
+                }
+            }
+
+            strokeWeight(10);
+            for(var i=0;i<figurex.length;i++){
+                point(figurex[i],figurey[i])
+                text(i+1,figurex[i]-10,figurey[i]-10)
+            }
+            strokeWeight(1)
+        }
+       
+       </script>
+    </head>
+    <body>
+    </body>
+</html>
