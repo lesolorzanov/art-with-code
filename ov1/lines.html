@@ -50,14 +50,14 @@
 
         function mousePressed() {
             clicks++;
-            
+            if(drawLines){
                 if(mouseButton === LEFT){
                     xp.push(mouseX); yp.push(mouseY)
                 }
                 if(mouseButton === RIGHT){
                     xp.pop(); yp.pop();
                 }
-            
+            }            
         }
 
         function drawExercise(){
