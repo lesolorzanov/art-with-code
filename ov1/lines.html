@@ -13,7 +13,7 @@
         let drawLines=true;
 
         function setup(){
-            createCanvas(  567, 798);            
+            createCanvas(567, 798);            
             img=loadImage(eximg);
             colorMode(RGB, 1);
         }
@@ -22,7 +22,7 @@
 
             background(255);
             fill(0)
-            text(clicks, 40, 40)
+            text(mouseX+", "+mouseY, 40, 40)
 
             drawExercise();
             
@@ -33,7 +33,13 @@
                     }
                 }
             }
+
+            finishExercise();
             
+            
+        }
+
+        function finishExercise(){
             if (distancePoints()) {
                 loop();
                 
@@ -48,17 +54,18 @@
             }
         }
 
-        function mousePressed() {
+        /*function mousePressed() {
             clicks++;
             
+            if(drawLines){
                 if(mouseButton === LEFT){
                     xp.push(mouseX); yp.push(mouseY)
                 }
                 if(mouseButton === RIGHT){
                     xp.pop(); yp.pop();
                 }
-            
-        }
+            }
+        }*/
 
         function drawExercise(){
             for(var i=0;i<stemx.length-1;i++){
