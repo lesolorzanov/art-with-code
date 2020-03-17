@@ -1,0 +1,116 @@
+<html>
+    <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+    <script src="ov2.js"></script>
+    <script>
+      
+      let clicks = 0;
+        let x = 0;
+        let alp=0.0;
+        let t1x=[]; t1y=[];
+        let t2x=[]; t2y=[];
+        let t3x=[]; t3y=[];
+        
+
+        function setup(){
+            createCanvas(950, 1050);            
+            //img=loadImage(eximg);
+            colorMode(RGB, 255);
+            noLoop();
+        }
+
+        function draw(){
+
+            background(125);
+            fill(0)
+            strokeWeight(1)
+            text(mouseX+", "+mouseY, 40, 40)
+            
+            
+            
+            //}
+            
+
+            
+            
+        }
+
+        function finishExercise(){
+            if (distancePoints()) {
+                loop();
+                
+                //image(img, 0, 0);
+                if(alp<1.0){
+                    fill(255,255,255,1.0-alp);
+                    alp+=0.005;
+                    rect(0,0 ,950, 1050);
+                }
+                for(var i=0;i<triangles;i++){
+                    let c=color(colores[i]);
+                    fill(c);
+                    triangle(txp[i*3], typ[i*3], txp[i*3+1], typ[i*3+1] , txp[i*3+2], typ[i*3+2]);            
+                }
+                drawLines=false;
+            }
+        }
+
+
+
+        function mousePressed() {
+            clicks++;
+            
+            if(mouseButton === LEFT){
+                //xp.push(mouseX); yp.push(mouseY)
+                tri++
+                let c= get(mouseX,mouseY)
+                colors.push(c);
+            }
+            //if(mouseButton === RIGHT){
+                //xp.pop(); yp.pop();
+            //}
+            
+        }
+
+        function drawExercise(){
+            for(var i=0;i<stemx.length-1;i++){
+                line(stemx[i], stemy[i], stemx[i+1], stemy[i+1]);
+            }
+
+            for(var i=0;i<petalx.length;i++){
+                px=petalx[i];
+                py=petaly[i];
+                for(var j=0;j<px.length-1;j++){
+                    line(px[j], py[j], px[j+1], py[j+1]);
+                }
+            }
+
+            strokeWeight(10);
+            for(var i=0;i<figurex.length;i++){
+                point(figurex[i],figurey[i])
+                text(i+1,figurex[i]-10,figurey[i]-10)
+            }
+            strokeWeight(1)
+        }
+
+        function distancePoints(){
+            if(xp.length != figurex.length)
+                return false;
+
+            var sum=0;
+            for(var i=0;i<figurex.length;i++){
+                x=figurex[i]-xp[i];
+                y=figurey[i]-yp[i];
+                sum+=sqrt(x*x+y*y);
+            }
+            sum/=figurex.length;
+            if(sum>10){
+                return false;
+            }else{
+                return true;
+            }
+        }
+       </script>
+    </head>
+    <body>
+    </body>
+</html>
