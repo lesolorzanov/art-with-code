@@ -7,8 +7,12 @@
         let clicks = 0;
         let x = 0;
         let alp=0.0;
+
+        //- Modify here only ---------------------------
         let xp=[]//[0,0,0,0,0,0,0,0,0,0,0,0,0];
         let yp=[]//[0,0,0,0,0,0,0,0,0,0,0,0,0];
+        //----------------------------------------------
+        
         let img;
         let drawLines=true;
 
@@ -34,78 +38,10 @@
                 }
             }
 
-            finishExercise();
-            
-            
+            fin();
         }
 
-        function finishExercise(){
-            if (distancePoints()) {
-                loop();
-                
-                image(img, 0, 0);
-                if(alp<1.0){
-                    fill(255,255,255,1.0-alp);
-                    alp+=0.005;
-                    rect(0,0 ,567, 798);
-                }
-
-                drawLines=false;
-            }
-        }
-
-        /*function mousePressed() {
-            clicks++;
-            
-            if(drawLines){
-                if(mouseButton === LEFT){
-                    xp.push(mouseX); yp.push(mouseY)
-                }
-                if(mouseButton === RIGHT){
-                    xp.pop(); yp.pop();
-                }
-            }
-        }*/
-
-        function drawExercise(){
-            for(var i=0;i<stemx.length-1;i++){
-                line(stemx[i], stemy[i], stemx[i+1], stemy[i+1]);
-            }
-
-            for(var i=0;i<petalx.length;i++){
-                px=petalx[i];
-                py=petaly[i];
-                for(var j=0;j<px.length-1;j++){
-                    line(px[j], py[j], px[j+1], py[j+1]);
-                }
-            }
-
-            strokeWeight(10);
-            for(var i=0;i<figurex.length;i++){
-                point(figurex[i],figurey[i])
-                text(i+1,figurex[i]-10,figurey[i]-10)
-            }
-            strokeWeight(1)
-        }
-
-        function distancePoints(){
-            if(xp.length != figurex.length)
-                return false;
-
-            var sum=0;
-            for(var i=0;i<figurex.length;i++){
-                x=figurex[i]-xp[i];
-                y=figurey[i]-yp[i];
-                sum+=sqrt(x*x+y*y);
-            }
-            sum/=figurex.length;
-            if(sum>10){
-                return false;
-            }else{
-                return true;
-            }
-        }
-       
+        function fin(){ if (dp()) { loop(); image(img, 0, 0); if(alp<1.0){fill(255,255,255,1.0-alp);alp+=0.005;rect(0,0 ,567, 798); }drawLines=false; }}function drawExercise(){ for(var i=0;i<stemx.length-1;i++){ line(stemx[i], stemy[i], stemx[i+1], stemy[i+1]); } for(var i=0;i<petalx.length;i++){ px=petalx[i]; py=petaly[i]; for(var j=0;j<px.length-1;j++){line(px[j], py[j], px[j+1], py[j+1]); } } strokeWeight(10); for(var i=0;i<figurex.length;i++){ point(figurex[i],figurey[i]); text(i+1,figurex[i]-10,figurey[i]-10); } strokeWeight(1);} function dp(){ if(xp.length != figurex.length) return false; var sum=0; for(var i=0;i<figurex.length;i++){ x=figurex[i]-xp[i]; y=figurey[i]-yp[i]; sum+=sqrt(x*x+y*y); } sum/=figurex.length; if(sum>10){ return false; }else{ return true; }}
        
        </script>
     </head>
