@@ -18,25 +18,40 @@
             text(mouseX+", "+mouseY,50,50)
 
             fill(204);
-            triangle(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5]);
-            
-            
-            
+            triangle(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5]);   
 
             fill(102);
             rect(arr[6], arr[7], arr[8], arr[9]);
 
             fill(204);
-            quad(arr[10],arr[11],arr[12],arr[13],arr[14],arr[15],arr[16]);
+            quad(arr[10],arr[11],arr[12],arr[13],arr[14],arr[15],arr[16],arr[17]);
 
             fill(255);
-            ellipse(252, 144, 72, 72);
+            
+            ellipse(arr[18],arr[19],arr[20],arr[21]);
 
             fill(204);
-            triangle(288, 18, 351, 360, 288, 360);
+            triangle(arr[22],arr[23],arr[24],arr[25],arr[26],arr[27]);
 
             fill(255);
-            arc(479, 300, 280, 280, PI, TWO_PI);
+            
+            arc(arr[28],arr[29],arr[30],arr[31], PI/4, TWO_PI);
+
+
+
+            fill(204);
+            triangle(127, 71, 76, 151, 183, 148, );
+            fill(102);
+            rect(250, 71, 112, 98, );
+            fill(204);
+            quad(470, 76, 547, 75, 592, 160, 442, 158, );
+            fill(255);
+            ellipse( 134, 275, 116, 73, );
+            fill(204);
+            triangle( 262, 238, 309, 312, 372, 242, );
+            fill(255);
+            arc(518, 279, 100,100, PI/4, TWO_PI-PI/4);
+
         }
 
         function mousePressed(){
