@@ -1,0 +1,51 @@
+<html>
+    <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+    <script src="ov1.js"></script>
+    <script>
+
+        let arr=[];
+       
+        function setup(){
+            createCanvas(640, 480);
+            colorMode(RGB, 255);
+            
+            
+        }
+
+        function draw(){
+            background(0)
+            text(mouseX+", "+mouseY,50,50)
+
+            fill(204);
+            triangle(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5]);
+            
+            
+            
+
+            fill(102);
+            rect(arr[6], arr[7], arr[8], arr[9]);
+
+            fill(204);
+            quad(arr[10],arr[11],arr[12],arr[13],arr[14],arr[15],arr[16]);
+
+            fill(255);
+            ellipse(252, 144, 72, 72);
+
+            fill(204);
+            triangle(288, 18, 351, 360, 288, 360);
+
+            fill(255);
+            arc(479, 300, 280, 280, PI, TWO_PI);
+        }
+
+        function mousePressed(){
+            arr.push(mouseX,mouseY);
+        }
+        
+
+       </script>
+    </head>
+    <body>
+    </body>
+</html>
