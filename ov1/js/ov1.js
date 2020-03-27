@@ -7,3 +7,4 @@ let figurey=[222, 212, 222, 316, 294, 356, 330, 388, 360, 386, 304, 252, 226];
 //img by http://www.lenawikmandesign.se/sv/prints/a4-prints/a4-print-kungsangslilja.html
 let eximg="https://shopcdn2.textalk.se/shop/ws52/62852/art52/h7287/165677287-origpic-34f3e8.jpg"; 
 let drawLines=true;
+let alp=0.0;
